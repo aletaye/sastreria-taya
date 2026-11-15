@@ -42,4 +42,5 @@ Cercano, voseo uruguayo ("buscás", "vení", "reservá"), sin emojis, sin estere
 - Número de WhatsApp (constante `WHATSAPP` en `js/main.js`), horario exacto, logo original en alta resolución.
 - 11 imágenes de catálogo más (vestidos VM, niñas VN, moños AC) cuando se renueve la cuota de Canva.
 - Crear el repositorio en GitHub y publicar la demo.
+- Al publicar el sitio de verdad (deja de ser demo): borrar `<meta name="robots" content="noindex, nofollow">` y su comentario en el `<head>` de `index.html`.
 - Preguntas abiertas para María y Nazarena: duración de la prueba, seña, garantía, penalizaciones, días de limpieza, accesorios.
