@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sastrería Taya</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Alquiler de vestidos, trajes y accesorios de fiesta en Santa Lucía, Canelones. Reservá tu prueba con María y Nazarena.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Serif+Display&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="envoltura cabecera__fila">
+    <a class="marca" href="#inicio">Sastrería Taya</a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#historia">Nuestra historia</a></li>
+        <li><a href="#visitanos">Visitanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- Portada -->
+  <section class="portada">
+    <div class="envoltura portada__contenido">
+      <p class="acento" aria-hidden="true">Calidad</p>
+      <h1 class="portada__titulo">Tu fiesta empieza en el perchero.</h1>
+      <p class="portada__bajada">Te mostramos la prenda sin moldes: cada cuerpo la luce a su manera.</p>
+      <div class="acciones">
+        <!-- Etapa 2: este enlace pasará a la página de reservas de Google Calendar -->
+        <a class="btn btn--principal" href="#visitanos">Reservá tu prueba</a>
+        <a class="btn btn--whatsapp" href="#visitanos" data-whatsapp>Escribinos por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tendedero: fila deslizable en celular, perchas en diagonal en escritorio -->
+  <section class="tendedero" aria-labelledby="tendedero-titulo">
+    <div class="envoltura">
+      <div class="tendedero__cabeza">
+        <div>
+          <h2 class="seccion__titulo" id="tendedero-titulo">Recién llegados al perchero</h2>
+          <p class="seccion__bajada">Deslizá o usá las flechas para recorrer el perchero.</p>
+        </div>
+        <div class="carrusel__controles">
+          <button class="carrusel__boton" id="desfile-boton" type="button" aria-pressed="false">Pausar desfile</button>
+          <button class="carrusel__boton carrusel__boton--flecha" id="anterior" type="button" aria-label="Prenda anterior" aria-controls="tendedero">‹</button>
+          <button class="carrusel__boton carrusel__boton--flecha" id="siguiente" type="button" aria-label="Prenda siguiente" aria-controls="tendedero">›</button>
+        </div>
+      </div>
+    </div>
+    <div class="envoltura envoltura--pista carrusel" id="carrusel">
+      <span class="carrusel__cuerda" aria-hidden="true"></span>
+      <ul class="tendedero__pista" id="tendedero" aria-label="Prendas recién llegadas">
+        <li style="--i:0"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-02.webp" width="720" height="964" alt="Vestido largo verde esmeralda de lentejuelas con tajo, en percha">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-02</span><span class="tarjeta__nombre">Esmeralda de lentejuelas</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:1"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-01.webp" width="720" height="964" alt="Vestido largo negro de encaje con tirantes, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-01</span><span class="tarjeta__nombre">Negro de encaje</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:2"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VH-01.webp" width="720" height="964" alt="Saco de traje bordó con camisa blanca, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VH-01</span><span class="tarjeta__nombre">Saco bordó</span><span class="etiqueta etiqueta--hombre">Hombre</span></span>
+        </a></li>
+        <li style="--i:3"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-04.webp" width="720" height="964" alt="Vestido largo negro de escote drapeado, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-04</span><span class="tarjeta__nombre">Negro drapeado</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:4"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-03.webp" width="720" height="964" alt="Vestido largo negro con brillo y tirantes finos, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-03</span><span class="tarjeta__nombre">Negro con brillo</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:5"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VH-02.webp" width="720" height="964" alt="Saco de traje azul con camisa blanca, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VH-02</span><span class="tarjeta__nombre">Saco azul</span><span class="etiqueta etiqueta--hombre">Hombre</span></span>
+        </a></li>
+        <li style="--i:6"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-05.webp" width="720" height="964" alt="Vestido largo negro con cuello halter, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-05</span><span class="tarjeta__nombre">Negro halter</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+      </ul>
+    </div>
+    <div class="envoltura">
+      <p class="aviso">Imágenes ilustrativas. Vení a conocer la prenda real.</p>
+    </div>
+  </section>
+
+  <!-- Acordeón de categorías -->
+  <section class="categorias" id="catalogo" aria-labelledby="categorias-titulo">
+    <div class="envoltura">
+      <h2 class="seccion__titulo" id="categorias-titulo">¿Para quién es la fiesta?</h2>
+      <div class="acordeon" id="acordeon">
+        <div class="acordeon__item acordeon__item--mujer abierto">
+          <button class="acordeon__franja" type="button" aria-expanded="true" aria-controls="panel-mujer" id="franja-mujer">Mujer</button>
+          <div class="acordeon__panel" id="panel-mujer" role="region" aria-labelledby="franja-mujer">
+            <img src="img/catalogo/VM-02.webp" width="720" height="964" alt="" loading="lazy">
+            <p>Vestidos largos y cortos para casamientos, quinces, graduaciones y fiestas de fin de año. Talles y cortes para cada cuerpo.</p>
+          </div>
+        </div>
+        <div class="acordeon__item acordeon__item--hombre">
+          <button class="acordeon__franja" type="button" aria-expanded="false" aria-controls="panel-hombre" id="franja-hombre">Hombre</button>
+          <div class="acordeon__panel" id="panel-hombre" role="region" aria-labelledby="franja-hombre" hidden>
+            <img src="img/catalogo/VH-01.webp" width="720" height="964" alt="" loading="lazy">
+            <p>Trajes, sacos, camisas, corbatas y moños, para adolescentes y para sus papás.</p>
+          </div>
+        </div>
+        <div class="acordeon__item acordeon__item--ninas">
+          <button class="acordeon__franja" type="button" aria-expanded="false" aria-controls="panel-ninas" id="franja-ninas">Niñas</button>
+          <div class="acordeon__panel" id="panel-ninas" role="region" aria-labelledby="franja-ninas" hidden>
+            <p>Vestidos de damita y de fiesta para las más chicas. Fotos próximamente.</p>
+          </div>
+        </div>
+        <div class="acordeon__item acordeon__item--ninos">
+          <button class="acordeon__franja" type="button" aria-expanded="false" aria-controls="panel-ninos" id="franja-ninos">Niños</button>
+          <div class="acordeon__panel" id="panel-ninos" role="region" aria-labelledby="franja-ninos" hidden>
+            <p>Trajecitos y ropa de paje para ceremonias. Fotos próximamente.</p>
+          </div>
+        </div>
+        <div class="acordeon__item acordeon__item--accesorios">
+          <button class="acordeon__franja" type="button" aria-expanded="false" aria-controls="panel-accesorios" id="franja-accesorios">Accesorios</button>
+          <div class="acordeon__panel" id="panel-accesorios" role="region" aria-labelledby="franja-accesorios" hidden>
+            <p>Zapatos, carteras, bijouterie, corbatas y moños para completar el conjunto. Fotos próximamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Asesoramiento -->
+  <section class="asesoramiento">
+    <div class="envoltura">
+      <blockquote class="asesoramiento__cita">
+        <p>María y Nazarena saben qué te queda bien antes de que te lo pruebes.</p>
+      </blockquote>
+      <p class="asesoramiento__texto">¿No está exactamente lo que buscás? Siempre hay algo que se adapte a ti, y te ayudamos a encontrarlo.</p>
+    </div>
+  </section>
+
+  <!-- Cómo funciona: es una secuencia real, por eso va numerada -->
+  <section class="como-funciona" id="como-funciona" aria-labelledby="como-titulo">
+    <div class="envoltura">
+      <h2 class="seccion__titulo" id="como-titulo">Cómo funciona el alquiler</h2>
+      <ol class="pasos">
+        <li><h3>Reservá tu prueba</h3><p>Elegí un día y una hora para venir al local.</p></li>
+        <li><h3>Probate con asesoramiento</h3><p>Te ayudamos a encontrar la prenda, el talle y el corte.</p></li>
+        <li><h3>Retirá tu prenda</h3><p>Antes de tu fiesta, con los ajustes que necesite.</p></li>
+        <li><h3>Devolvela después</h3><p>La traés al local en la fecha acordada.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="historia" id="historia" aria-labelledby="historia-titulo">
+    <div class="envoltura historia__grilla">
+      <figure class="historia__foto">
+        <img src="img/historia/sastreria-original.jpg" width="230" height="300" alt="Fachada de la primera Sastrería Taya, con el cartel Calidad y perfección" loading="lazy">
+        <figcaption>La sastrería de Miguel Taya, en la calle Rivera.</figcaption>
+      </figure>
+      <div class="historia__texto">
+        <h2 class="seccion__titulo" id="historia-titulo">Nuestra historia</h2>
+        <p>El nombre viene de la sastrería de Miguel Taya, que confeccionaba trajes de hombre en este mismo local de la calle Rivera.</p>
+        <p>Hoy su hija María José Taya y su nieta Nazarena Delgado siguen el oficio, vistiendo fiestas para mujeres, hombres, niñas y niños.</p>
+        <p class="acento acento--chico">Calidad y perfección</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Llamado a reservar, sobre satén bordó -->
+  <section class="llamado" aria-labelledby="llamado-titulo">
+    <div class="envoltura llamado__contenido">
+      <h2 class="llamado__titulo" id="llamado-titulo">¿Tenés una fiesta en puerta?</h2>
+      <p>Vení a probarte con María y Nazarena. Te ayudamos a elegir.</p>
+      <div class="acciones">
+        <a class="btn btn--claro" href="#visitanos">Reservá tu prueba</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visitanos -->
+  <section class="visitanos" id="visitanos" aria-labelledby="visitanos-titulo">
+    <div class="envoltura">
+      <h2 class="seccion__titulo" id="visitanos-titulo">Visitanos</h2>
+      <dl class="datos">
+        <div><dt>Dirección</dt><dd>Calle Rivera, Santa Lucía, Canelones</dd></div>
+        <div><dt>Horario</dt><dd>Lunes a sábado <span class="pendiente">(horario a confirmar)</span></dd></div>
+        <div><dt>WhatsApp</dt><dd><span data-whatsapp-texto>Número a confirmar</span></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/sastreria_taya/" target="_blank" rel="noopener">@sastreria_taya</a></dd></div>
+      </dl>
+      <div class="acciones">
+        <a class="btn btn--secundario" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Rivera+Santa+Luc%C3%ADa+Canelones+Uruguay" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura pie__fila">
+    <img class="pie__logo" src="img/marca/logo-taya.png" width="98" height="98" alt="Logo de Sastrería Taya">
+    <div>
+      <p class="pie__lema">Si es Taya, no falla.</p>
+      <p class="pie__nota">Sastrería Taya · Santa Lucía, Canelones · <span id="anio">2026</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
