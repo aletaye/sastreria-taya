@@ -40,6 +40,7 @@ Cercano, voseo uruguayo ("buscás", "vení", "reservá"), sin emojis, sin estere
 
 ## Pendientes
 - Número de WhatsApp (constante `WHATSAPP` en `js/main.js`), horario exacto, logo original en alta resolución.
+- Foto histórica en mayor definición (`img/historia/sastreria-original.jpg` hoy es 230×300, foto de una foto impresa): Ale la va a conseguir escaneada a 600 dpi o con Google PhotoScan. Al recibirla: recortar, enderezar, ajustar contraste, exportar ~600px de ancho y actualizar `width`/`height` en `index.html`.
 - 11 imágenes de catálogo más (vestidos VM, niñas VN, moños AC) cuando se renueve la cuota de Canva.
 - Crear el repositorio en GitHub y publicar la demo.
 - Al publicar el sitio de verdad (deja de ser demo): borrar `<meta name="robots" content="noindex, nofollow">` y su comentario en el `<head>` de `index.html`.
