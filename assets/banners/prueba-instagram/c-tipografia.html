@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Opción C · Tipografía sobre bordó · 1080x1080</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Serif+Display&display=swap">
+<style>
+  /* Opción C — Tipografía protagonista sobre bordó liso: el lema de Instagram en grande.
+     Botón invertido (crema con texto bordó), como el botón "claro" de la web. */
+  :root { --crema:#f3ede2; --crema-claro:#fbf8f2; --bordo:#8e2436; --dorado:#b8935a; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--bordo); }
+  .lienzo { position: relative; width: 1080px; height: 1080px; padding: 108px; font-family: "DM Sans", sans-serif; color: var(--crema-claro); }
+  .marca { display: flex; align-items: center; gap: 20px; font-family: "DM Serif Display", serif; font-size: 40px; }
+  .marca img { width: 72px; height: 72px; border-radius: 50%; }
+  .linea { width: 120px; height: 3px; background: var(--dorado); margin: 96px 0 40px; }
+  h1 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: 150px; line-height: 1; }
+  .bajada { margin-top: 44px; font-size: 34px; line-height: 1.35; max-width: 24ch; color: var(--crema); }
+  .pie { position: absolute; left: 108px; right: 108px; bottom: 108px; display: flex; align-items: center; justify-content: space-between; }
+  .pie p { font-size: 26px; color: var(--crema); }
+  .cta { background: var(--crema-claro); color: var(--bordo); font-weight: 600; font-size: 30px; padding: 22px 40px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<div class="lienzo">
+  <div class="marca"><img src="../../../img/marca/logo-taya.png" alt="">Sastrería Taya</div>
+  <div class="linea"></div>
+  <h1>Si es Taya, no falla.</h1>
+  <p class="bajada">Alquiler de vestidos, trajes y accesorios de fiesta en Santa Lucía, desde 1940.</p>
+  <div class="pie">
+    <p>@sastreria_taya</p>
+    <span class="cta">Reservá tu prueba</span>
+  </div>
+</div>
+</body>
+</html>

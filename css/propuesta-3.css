@@ -1,0 +1,114 @@
+﻿/* Sastrería Taya — Propuesta 3: "Todos bailan" con las mejoras de la revisión UI/UX
+   Se carga DESPUÉS de styles.css: usa sus mismos tokens (colores, tipografías, espacios)
+   y solo agrega la portada nueva. Cambios respecto de la propuesta 2:
+   1. pausa del cartel corredizo · 2. foto más baja en celular y tablet, para ver "Reservá tu prueba"
+   3. línea que dice qué hace el negocio · 4. borde de la letra hueca más grueso */
+
+/* ---------- Cabecera: logo antes del nombre ---------- */
+.marca { display: inline-flex; align-items: center; gap: var(--space-3); }
+.marca__logo { width: 44px; height: 44px; border-radius: 50%; } /* redondo, como en el pie */
+
+/* ---------- Portada: foto al centro, títulos verticales a los costados ---------- */
+.baile { padding-block: var(--space-6) var(--space-8); }
+
+.baile__escena {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  grid-template-areas: "izq foto der";
+  column-gap: var(--space-2);
+  justify-content: center;
+}
+
+.baile__foto {
+  grid-area: foto; justify-self: center;
+  /* Celular y tablet: la foto se achica según el alto de la pantalla, para que la línea
+     del negocio y "Reservá tu prueba" entren en la primera vista.
+     232px = cabecera (64) + margen de arriba (24) + línea del negocio (16 + 2 renglones de 26)
+             + margen (16) + botón (48) + un poco de aire (12).
+     Primero "vh" (todos los navegadores) y después "svh" (alto real sin la barra del navegador). */
+  height: max(320px, calc(100vh - 232px));
+  height: max(320px, calc(100svh - 232px));
+  width: auto; max-width: 100%;
+  object-fit: contain; /* si el ancho no alcanza, la foto se achica entera, sin deformarse */
+  /* "multiply" funde el fondo blanco de la foto con el crema de la página */
+  mix-blend-mode: multiply;
+}
+
+/* qué hace el negocio, en una línea, debajo de la foto */
+.baile__bajada {
+  margin: var(--space-4) auto 0; max-width: 34ch;
+  text-align: center; color: var(--tinta-suave);
+}
+
+/* control de pausa: discreto, debajo de los botones */
+.baile__pausa { display: block; margin: var(--space-4) auto 0; }
+.baile__pausa[hidden] { display: none; }
+/* pausa: el cartel se frena donde está */
+.baile.en-pausa .lema__pista { animation-play-state: paused; }
+/* un toque sobre el título también lo frena */
+.lema.en-movimiento { cursor: pointer; }
+
+/* Títulos verticales: los dos se leen de abajo hacia arriba.
+   writing-mode los pone de arriba hacia abajo; el giro de 180° los invierte. */
+.lema {
+  margin: 0;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 400;
+  color: var(--tinta); /* respaldo si el navegador no sabe dibujar solo el borde */
+}
+.lema__texto { writing-mode: vertical-rl; transform: rotate(180deg); text-wrap: balance; }
+
+/* Cartel corredizo: la pista tiene el texto repetido dos veces (dos "juegos" iguales).
+   Baja exactamente la mitad de su alto y vuelve a empezar: como el segundo juego quedó
+   donde estaba el primero, el salto no se nota y parece continuo. */
+.lema.en-movimiento {
+  /* las letras se esfuman al entrar por arriba y al salir por abajo */
+  -webkit-mask-image: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+}
+.lema__pista {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; flex-direction: column; align-items: center;
+  animation: bajar var(--duracion, 20s) linear infinite;
+}
+.lema__pista .lema__texto { padding: 0.5em 0; white-space: nowrap; } /* separación entre repeticiones */
+.lema:hover .lema__pista { animation-play-state: paused; } /* se frena al pasar el mouse */
+/* baja: arranca subida media pista y desciende hasta su lugar; al reiniciar, el salto no se nota */
+@keyframes bajar { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+
+/* mientras se mueve, el texto original queda solo para lectores de pantalla */
+.lema.en-movimiento > .lema__texto {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+}
+
+/* letra "hueca": del color del fondo, solo con el borde en tinta */
+@supports (-webkit-text-stroke: 1px black) {
+  /* borde de 1,5px (antes 1px): la letra se lee mejor en el celular y en movimiento */
+  .lema { color: var(--crema); -webkit-text-stroke: 1.5px var(--tinta); paint-order: stroke fill; }
+}
+/* "Sastrería Taya" va rellena en negro */
+.lema strong { font-weight: 400; color: var(--tinta); -webkit-text-stroke: 0; }
+
+/* los dos costados con el mismo tamaño de letra */
+.lema { font-size: 36px; line-height: 44px; }
+.lema--izq { grid-area: izq; }
+.lema--der { grid-area: der; }
+
+.baile__acciones { justify-content: center; margin-top: var(--space-4); }
+
+/* ---------- Tablet: desde 600px ---------- */
+@media (min-width: 600px) {
+  .baile__escena { grid-template-columns: 72px minmax(0, 340px) 72px; column-gap: var(--space-8); }
+  .lema { font-size: 48px; line-height: 56px; }
+}
+
+/* ---------- Escritorio: desde 1024px ---------- */
+@media (min-width: 1024px) {
+  .baile { padding-block: var(--space-8) var(--space-12); }
+  /* la foto no pasa del alto de la pantalla (menos la cabecera) */
+  .baile__escena { grid-template-columns: 96px auto 96px; column-gap: var(--space-16); }
+  /* en escritorio la línea del negocio va en un renglón: 240px deja ver también el botón */
+  .baile__foto { width: auto; max-width: none; height: min(calc(100svh - 240px), 820px); }
+  .lema { font-size: 64px; line-height: 72px; }
+}

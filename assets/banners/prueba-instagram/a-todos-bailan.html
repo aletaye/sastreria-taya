@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Opción A · Todos bailan · 1080x1080</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Serif+Display&display=swap">
+<style>
+  /* Opción A — Foto ("Todos bailan"): la misma idea de la portada web, en cuadrado.
+     Zona segura: todo lo importante queda a 108px o más de los bordes (80% central). */
+  :root { --crema:#f3ede2; --crema-claro:#fbf8f2; --tinta:#1e1b1c; --tinta-suave:#5c5250; --bordo:#8e2436; --dorado:#b8935a; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--crema); }
+  .lienzo { position: relative; width: 1080px; height: 1080px; padding: 108px; font-family: "DM Sans", sans-serif; color: var(--tinta); }
+  .marca { display: flex; align-items: center; gap: 20px; font-family: "DM Serif Display", serif; font-size: 40px; }
+  .marca img { width: 72px; height: 72px; border-radius: 50%; }
+  .escena { position: absolute; left: 108px; right: 108px; top: 210px; bottom: 210px;
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; justify-items: center; }
+  .escena img { height: 660px; mix-blend-mode: multiply; }
+  .vertical { writing-mode: vertical-rl; transform: rotate(180deg); font-family: "DM Serif Display", serif; line-height: 1.05; }
+  .izq { font-size: 92px; }
+  .der { font-size: 58px; }
+  .der strong { font-weight: 400; color: var(--bordo); }
+  .pie { position: absolute; left: 108px; right: 108px; bottom: 108px; display: flex; align-items: center; justify-content: space-between; }
+  .pie p { font-size: 26px; color: var(--tinta-suave); }
+  .cta { background: var(--bordo); color: var(--crema-claro); font-weight: 600; font-size: 30px; padding: 22px 40px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<div class="lienzo">
+  <div class="marca"><img src="../../../img/marca/logo-taya.png" alt="">Sastrería Taya</div>
+  <div class="escena">
+    <p class="vertical izq">Vos andá y bailá</p>
+    <img src="../../../img/portada/todos-bailan.jpg" alt="Personas bailando de fiesta">
+    <p class="vertical der"><strong>Sastrería Taya</strong> te viste como nunca</p>
+  </div>
+  <div class="pie">
+    <p>Santa Lucía · @sastreria_taya</p>
+    <span class="cta">Reservá tu prueba</span>
+  </div>
+</div>
+</body>
+</html>

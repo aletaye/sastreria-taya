@@ -56,5 +56,7 @@ Cercano, voseo uruguayo ("buscás", "vení", "reservá"), sin emojis, sin estere
 - 11 imágenes de catálogo más (vestidos VM, niñas VN, moños AC) cuando se renueve la cuota de Canva.
 - Crear el repositorio en GitHub y publicar la demo.
 - Al publicar el sitio de verdad (deja de ser demo): borrar `<meta name="robots" content="noindex, nofollow">` y su comentario en el `<head>` de `index.html`.
-- Elegir entre `index.html` y `propuesta-2.html` para publicar.
+- Elegir entre `index.html`, `propuesta-2.html` y `propuesta-3.html` (la 2 con las mejoras de la revisión UI/UX) para publicar.
+- Mostrar a María y Nazarena las 3 pruebas de publicación de Instagram (1080×1080) en `assets/banners/prueba-instagram/`: A "Todos bailan" (foto), B "Perchero" (editorial) y C "Si es Taya, no falla" (tipografía sobre bordó). Cada PNG tiene su HTML para editarlo. Las prendas de B son ilustrativas (Canva).
+- Revisar con ellas el manual de marca `docs/brand-guidelines.md`: colores de estado del back-office, palabras a evitar y texto base para imágenes con IA están marcados como propuesta.
 - Preguntas abiertas para María y Nazarena: seña, garantía, penalizaciones, días en depósito antes del evento y días de tintorería, accesorios, cómo fijar la etiqueta NFC sin dañar la prenda, quién inscribe la base en la URCDP, qué celulares usa el equipo, qué prendas de ejemplo van en cada carrusel.

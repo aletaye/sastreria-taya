@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Opción B · Perchero · 1080x1080</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Serif+Display&display=swap">
+<style>
+  /* Opción B — Editorial "perchero": tres prendas colgadas de una cuerda dorada,
+     como el carrusel de la web. Título arriba, invitación abajo a la derecha. */
+  :root { --crema:#f3ede2; --crema-claro:#fbf8f2; --tinta:#1e1b1c; --tinta-suave:#5c5250; --bordo:#8e2436; --dorado:#b8935a; --esmeralda:#1f5e54; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--crema); }
+  .lienzo { position: relative; width: 1080px; height: 1080px; padding: 108px; font-family: "DM Sans", sans-serif; color: var(--tinta); }
+  h1 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: 76px; line-height: 1.05; max-width: 12ch; color: var(--esmeralda); }
+  .cuerda { position: absolute; left: 60px; right: 60px; top: 418px; height: 3px; background: var(--dorado); transform: rotate(4deg); }
+  .prendas { position: absolute; left: 140px; right: 140px; top: 400px; display: flex; justify-content: space-between; }
+  .prenda { width: 230px; position: relative; }
+  .prenda::before { content: ""; position: absolute; left: 50%; top: -22px; width: 5px; height: 26px; margin-left: -2px; background: var(--dorado); border-radius: 2px; }
+  .prenda img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 28px rgba(30,27,28,.14); background: var(--crema-claro); }
+  .prenda:nth-child(1) { margin-top: 0; }
+  .prenda:nth-child(2) { margin-top: 18px; }
+  .prenda:nth-child(3) { margin-top: 36px; }
+  .pie { position: absolute; left: 108px; right: 108px; bottom: 108px; display: flex; align-items: center; justify-content: space-between; }
+  .marca { display: flex; align-items: center; gap: 16px; font-family: "DM Serif Display", serif; font-size: 34px; }
+  .marca img { width: 64px; height: 64px; border-radius: 50%; }
+  .cta { background: var(--bordo); color: var(--crema-claro); font-weight: 600; font-size: 30px; padding: 22px 40px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<div class="lienzo">
+  <h1>Tu fiesta empieza en el perchero.</h1>
+  <span class="cuerda" aria-hidden="true"></span>
+  <div class="prendas">
+    <div class="prenda"><img src="../../../img/catalogo/VM-02.webp" alt="Vestido esmeralda de lentejuelas"></div>
+    <div class="prenda"><img src="../../../img/catalogo/VH-01.webp" alt="Saco bordó"></div>
+    <div class="prenda"><img src="../../../img/catalogo/VM-04.webp" alt="Vestido negro drapeado"></div>
+  </div>
+  <div class="pie">
+    <div class="marca"><img src="../../../img/marca/logo-taya.png" alt="">Sastrería Taya</div>
+    <span class="cta">Reservá tu prueba</span>
+  </div>
+</div>
+</body>
+</html>
