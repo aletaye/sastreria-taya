@@ -1,10 +1,15 @@
-﻿// Sastrería Taya — Propuesta 3: "Todos bailan" con las mejoras de la revisión UI/UX
+// Sastrería Taya — Propuesta 3: "Todos bailan" con las mejoras de la revisión UI/UX
 // Igual que propuesta-2.js, más la pausa del cartel corredizo (sección 2).
 
 // Número de WhatsApp del local, con código de país y sin espacios (ej.: "59899123456").
 // Mientras esté vacío, los botones de WhatsApp llevan a la sección Visitanos.
 const WHATSAPP = "";
 const MENSAJE_WHATSAPP = "Hola, quiero consultar por una prenda para una fiesta.";
+
+// Enlace de la página de reservas de pruebas (Cal.com), por ejemplo "https://cal.com/sastreria-taya/prueba".
+// Mientras esté vacío, "Reservá tu prueba" lleva a la sección Visitanos.
+// Para cambiar de proveedor (Google Calendar u otro) alcanza con cambiar este enlace: el resto no se toca.
+const RESERVA = "";
 
 const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -171,7 +176,21 @@ window.addEventListener("pointerup", () => {
   }
 });
 
-// 4. WhatsApp
+// 4. Reserva de pruebas: todos los botones con data-reserva van a la agenda, en una pestaña nueva
+if (RESERVA) {
+  document.querySelectorAll("[data-reserva]").forEach((a) => {
+    a.href = RESERVA;
+    a.target = "_blank";
+    a.rel = "noopener";
+    // aviso solo para lectores de pantalla: el enlace abre otra pestaña
+    const aviso = document.createElement("span");
+    aviso.className = "solo-lector";
+    aviso.textContent = " (se abre en una pestaña nueva)";
+    a.append(aviso);
+  });
+}
+
+// 5. WhatsApp
 if (WHATSAPP) {
   const enlace = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(MENSAJE_WHATSAPP)}`;
   document.querySelectorAll("[data-whatsapp]").forEach((a) => {
@@ -184,5 +203,5 @@ if (WHATSAPP) {
   });
 }
 
-// 5. Año del pie
+// 6. Año del pie
 document.getElementById("anio").textContent = new Date().getFullYear();

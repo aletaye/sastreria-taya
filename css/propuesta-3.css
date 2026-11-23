@@ -2,11 +2,25 @@
    Se carga DESPUÉS de styles.css: usa sus mismos tokens (colores, tipografías, espacios)
    y solo agrega la portada nueva. Cambios respecto de la propuesta 2:
    1. pausa del cartel corredizo · 2. foto más baja en celular y tablet, para ver "Reservá tu prueba"
-   3. línea que dice qué hace el negocio · 4. borde de la letra hueca más grueso */
+   3. qué hace el negocio, en la cabecera debajo del nombre · 4. borde de la letra hueca más grueso */
 
-/* ---------- Cabecera: logo antes del nombre ---------- */
-.marca { display: inline-flex; align-items: center; gap: var(--space-3); }
-.marca__logo { width: 44px; height: 44px; border-radius: 50%; } /* redondo, como en el pie */
+/* ---------- Cabecera: logo a la izquierda; a su derecha el nombre y, debajo, qué hace el negocio ---------- */
+.marca {
+  /* flex: 1 1 0 → la marca usa el espacio que sobra, pero deja lugar al botón "Menú" en la misma fila */
+  flex: 1 1 0; min-width: 0;
+  display: grid; grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-3); align-items: center;
+  padding-block: var(--space-2);
+}
+.marca__logo { grid-row: span 2; width: 52px; height: 52px; border-radius: 50%; } /* redondo, como en el pie */
+.marca__nombre { align-self: end; }
+/* la tipografía de acento (Pinyon Script), en bordó, como "Todo dicho en Calidad" */
+.marca__lema {
+  align-self: start;
+  font-family: var(--font-acento); font-size: 18px; line-height: 21px;
+  color: var(--bordo);
+}
+.sin-corte { white-space: nowrap; } /* "Santa Lucía-Canelones" no se separa en el guion */
 
 /* ---------- Portada: foto al centro, títulos verticales a los costados ---------- */
 .baile { padding-block: var(--space-6) var(--space-8); }
@@ -23,21 +37,15 @@
   grid-area: foto; justify-self: center;
   /* Celular y tablet: la foto se achica según el alto de la pantalla, para que la línea
      del negocio y "Reservá tu prueba" entren en la primera vista.
-     232px = cabecera (64) + margen de arriba (24) + línea del negocio (16 + 2 renglones de 26)
-             + margen (16) + botón (48) + un poco de aire (12).
+     200px = cabecera con el nombre y la frase en dos renglones (~96) + margen de arriba (24)
+             + margen (16) + botón (48) + un poco de aire (16).
      Primero "vh" (todos los navegadores) y después "svh" (alto real sin la barra del navegador). */
-  height: max(320px, calc(100vh - 232px));
-  height: max(320px, calc(100svh - 232px));
+  height: max(320px, calc(100vh - 200px));
+  height: max(320px, calc(100svh - 200px));
   width: auto; max-width: 100%;
   object-fit: contain; /* si el ancho no alcanza, la foto se achica entera, sin deformarse */
   /* "multiply" funde el fondo blanco de la foto con el crema de la página */
   mix-blend-mode: multiply;
-}
-
-/* qué hace el negocio, en una línea, debajo de la foto */
-.baile__bajada {
-  margin: var(--space-4) auto 0; max-width: 34ch;
-  text-align: center; color: var(--tinta-suave);
 }
 
 /* control de pausa: discreto, debajo de los botones */
@@ -101,6 +109,7 @@
 @media (min-width: 600px) {
   .baile__escena { grid-template-columns: 72px minmax(0, 340px) 72px; column-gap: var(--space-8); }
   .lema { font-size: 48px; line-height: 56px; }
+  .marca__lema { font-size: 20px; line-height: 22px; } /* con más ancho, la frase entra en un renglón */
 }
 
 /* ---------- Escritorio: desde 1024px ---------- */
@@ -108,7 +117,10 @@
   .baile { padding-block: var(--space-8) var(--space-12); }
   /* la foto no pasa del alto de la pantalla (menos la cabecera) */
   .baile__escena { grid-template-columns: 96px auto 96px; column-gap: var(--space-16); }
-  /* en escritorio la línea del negocio va en un renglón: 240px deja ver también el botón */
+  /* 240px: cabecera + botones + "Pausar movimiento" entran en la primera vista */
   .baile__foto { width: auto; max-width: none; height: min(calc(100svh - 240px), 820px); }
   .lema { font-size: 64px; line-height: 72px; }
 }
+
+/* texto que solo leen los lectores de pantalla (por ejemplo, avisar que un enlace abre otra pestaña) */
+.solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

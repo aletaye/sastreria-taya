@@ -22,7 +22,9 @@
     <a class="marca" href="#inicio">
       <!-- alt vacío: el nombre ya está escrito al lado, así el lector de pantalla no lo repite -->
       <img class="marca__logo" src="img/marca/logo-taya.png" width="98" height="98" alt="">
-      Sastrería Taya
+      <span class="marca__nombre">Sastrería Taya</span>
+      <!-- qué hace el negocio, en la tipografía de acento (la de "Todo dicho en Calidad") -->
+      <span class="marca__lema">Alquiler de vestidos y trajes en <span class="sin-corte">Santa Lucía-Canelones</span></span>
     </a>
     <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
     <nav class="menu" id="menu" aria-label="Principal">
@@ -50,11 +52,9 @@
         <img class="baile__foto" src="img/portada/todos-bailan.jpg" width="340" height="1024" fetchpriority="high"
              alt="Una fila de personas bailando de fiesta: vestidos verde, amarillo, naranja y azul, y trajes azul, bordó y negro">
       </div>
-      <!-- qué hace el negocio, dicho en una línea, para quien llega sin conocerlas -->
-      <p class="baile__bajada">Alquiler de vestidos, trajes y accesorios de fiesta en Santa Lucía</p>
       <div class="acciones baile__acciones">
-        <!-- Etapa 2: este enlace pasará a la página de reservas (Cal.com) -->
-        <a class="btn btn--principal" href="#visitanos">Reservá tu prueba</a>
+        <!-- data-reserva: propuesta-3.js le pone el enlace de la agenda (constante RESERVA) -->
+        <a class="btn btn--principal" href="#visitanos" data-reserva>Reservá tu prueba</a>
         <a class="btn btn--whatsapp" href="#visitanos" data-whatsapp>Escribinos por WhatsApp</a>
       </div>
       <!-- control de pausa del cartel corredizo (WCAG 2.2.2); se oculta si la persona pidió menos movimiento -->
@@ -122,6 +122,10 @@
         <li><h3>Retirá tu prenda</h3><p>Antes de tu fiesta, con los ajustes que necesite.</p></li>
         <li><h3>Devolvela después</h3><p>La traés al local en la fecha acordada.</p></li>
       </ol>
+      <!-- segundo acceso a la agenda, para quien llega hasta acá leyendo los pasos -->
+      <div class="acciones">
+        <a class="btn btn--principal" href="#visitanos" data-reserva>Reservá tu prueba</a>
+      </div>
     </div>
   </section>
 
@@ -145,7 +149,7 @@
       <h2 class="seccion__titulo" id="visitanos-titulo">Visitanos</h2>
       <dl class="datos">
         <div><dt>Dirección</dt><dd>Calle Rivera, Santa Lucía, Canelones</dd></div>
-        <div><dt>Horario</dt><dd>Lunes a sábado <span class="pendiente">(horario a confirmar)</span></dd></div>
+        <div><dt>Horario</dt><dd>Lunes a sábado, de 10:00 a 12:00 y de 16:00 a 19:30</dd></div>
         <div><dt>WhatsApp</dt><dd><span data-whatsapp-texto>Número a confirmar</span></dd></div>
         <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/sastreria_taya/" target="_blank" rel="noopener">@sastreria_taya</a></dd></div>
       </dl>
