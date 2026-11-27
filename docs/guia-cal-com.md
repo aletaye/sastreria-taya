@@ -14,7 +14,7 @@ Cal.com se conecta a **un** Google Calendar. Hoy no hay correo del negocio, así
 | **Gmail de María** (o de Nazarena) | Las citas caen en su calendario; lo comparte con la otra en modo lectura (Google Calendar → Configuración → Compartir con personas). |
 | **Un Gmail nuevo solo para el local** | Las citas no se mezclan con la vida personal y la cuenta queda si alguien deja el negocio. Recomendado, aunque no es obligatorio. |
 
-Anotar acá cuál se usó: ______________________
+Se usó: **un Gmail nuevo del local**, `sastreria.taya.santalucia@gmail.com` (cuenta creada el 27/11/2026).
 
 ## Paso 1 — Crear la cuenta
 
@@ -42,6 +42,9 @@ En **Disponibilidad**, crear un horario llamado **Horario del local**:
 > Si el sábado tiene otro horario, se cambia solo ese día. (Pregunta abierta en el plan.)
 
 ## Paso 3 — El tipo de evento "Prueba de vestuario"
+
+Cal.com crea dos eventos de ejemplo ("Reunión de 15 min" y "Reunión de 30 min"). **Borrarlos u ocultarlos**
+(interruptor "Ocultar del perfil"), para que la clienta vea solo la prueba.
 
 En **Tipos de evento → Nuevo**:
 
@@ -108,6 +111,19 @@ Pasarle a Ale el enlace final (por ejemplo `https://cal.com/sastreria-taya/prueb
 
 Opcional, para más adelante: en el tipo de evento, botón **Embed → Al hacer clic en un elemento**, copiar el código
 que da Cal.com y pasárselo a Ale. Con eso la agenda se abre en una ventana dentro del sitio, sin salir de la página.
+
+## Cómo quedó configurada (27/11/2026)
+
+- Enlace del evento: `https://cal.com/sastreria-taya/pruebadevestuario`. La web usa
+  `https://cal.com/sastreria-taya/pruebadevestuario?attendeePhoneNumber=%2B598` para que el celular arranque en Uruguay
+  (sin eso Cal.com propone Brasil y no hay ajuste para cambiarlo).
+- Horario lunes a sábado 10:00–12:00 y 16:00–19:30; 25/12 y 1/1 cerrados; 2 lugares por turno; sin cobro.
+- Formulario: nombre y celular obligatorios, **correo opcional** (no todas las clientas tienen), notas, consentimiento
+  obligatorio. No se pregunta el canal de aviso: **el canal central es WhatsApp**.
+- Prueba hecha: 3 reservas en el mismo turno → entran 2, la tercera no ve el horario. Las citas caen en Google Calendar.
+- Limitaciones del plan gratis: la plantilla de los correos no se puede editar.
+- **Para cancelar hay que usar el enlace "Cancelar" dentro del correo de Cal.com.** Responder "No" en la barra de Gmail
+  ("¿Vas a asistir?") solo avisa a Google Calendar: Cal.com no se entera y el lugar queda ocupado.
 
 ## Antes de abrir la agenda al público
 

@@ -6,10 +6,11 @@
 const WHATSAPP = "";
 const MENSAJE_WHATSAPP = "Hola, quiero consultar por una prenda para una fiesta.";
 
-// Enlace de la página de reservas de pruebas (Cal.com), por ejemplo "https://cal.com/sastreria-taya/prueba".
-// Mientras esté vacío, "Reservá tu prueba" lleva a la sección Visitanos.
+// Enlace de la página de reservas de pruebas (Cal.com, evento "Prueba de vestuario").
+// "?attendeePhoneNumber=%2B598" precarga el prefijo de Uruguay en el celular (si no, Cal.com propone Brasil).
+// Si queda vacío, "Reservá tu prueba" lleva a la sección Visitanos.
 // Para cambiar de proveedor (Google Calendar u otro) alcanza con cambiar este enlace: el resto no se toca.
-const RESERVA = "";
+const RESERVA = "https://cal.com/sastreria-taya/pruebadevestuario?attendeePhoneNumber=%2B598";
 
 const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
