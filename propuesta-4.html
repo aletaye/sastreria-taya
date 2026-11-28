@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sastrería Taya</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Alquiler de vestidos, trajes y accesorios de fiesta en Santa Lucía, Canelones. Reservá tu prueba con María y Nazarena.">
+<!-- Demo: pide a los buscadores que no muestren el sitio. Borrar al publicar de verdad. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=DM+Serif+Display&family=Pinyon+Script&display=swap">
+<!-- Propuesta 4: la 3 con las fotos nuevas de la fiesta (vertical para celular, horizontal para computadora)
+     y los ajustes de la segunda revisión UI/UX. Reutiliza los estilos del primer modelo y suma los suyos -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/propuesta-4.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="envoltura cabecera__fila">
+    <a class="marca" href="#inicio">
+      <!-- alt vacío: el nombre ya está escrito al lado, así el lector de pantalla no lo repite -->
+      <img class="marca__logo" src="img/marca/logo-taya.png" width="98" height="98" alt="">
+      <span class="marca__nombre">Sastrería Taya</span>
+      <!-- qué hace el negocio, en la tipografía de acento (la de "Todo dicho en Calidad") -->
+      <!-- dos partes: en el celular cada una va en su renglón (2 en vez de 3); con más ancho, una sola línea -->
+      <span class="marca__lema"><span class="marca__lema-parte">Alquiler de vestidos y trajes</span> <span class="marca__lema-parte sin-corte">en Santa Lucía-Canelones</span></span>
+    </a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#catalogo">Recién llegados</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#historia">Nuestra historia</a></li>
+        <li><a href="#visitanos">Visitanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- Portada "Todos bailan": la foto al centro y dos títulos verticales a los costados -->
+  <section class="baile">
+    <div class="envoltura">
+      <div class="baile__escena">
+        <!-- propuesta-4.js copia cada texto varias veces y lo hace bajar sin fin, como un cartel corredizo.
+             Un toque sobre un título, o el botón de abajo, lo frena y lo reanuda. -->
+        <h1 class="lema lema--izq"><span class="lema__texto">Vos andá y bailá</span></h1>
+        <p class="lema lema--der"><span class="lema__texto"><strong>Sastrería Taya</strong> te viste como nunca</span></p>
+        <!-- Dos fotos de la misma fiesta (generadas con IA de Google): la vertical para pantallas paradas
+             (celular, tablet vertical) y la horizontal para pantallas apaisadas (computadora).
+             El navegador baja solo la que corresponde y, de cada una, el tamaño que necesita (srcset + sizes).
+             fetchpriority="high": es lo primero que se ve, así el navegador la pide antes que el resto -->
+        <picture class="baile__cuadro">
+          <source media="(orientation: portrait)" width="756" height="961"
+                  srcset="img/portada/fiesta-vertical-540.jpg 540w, img/portada/fiesta-vertical-756.jpg 756w"
+                  sizes="(min-width: 600px) 340px, 70vw">
+          <img class="baile__foto" src="img/portada/fiesta-horizontal-1344.jpg" width="1344" height="756" fetchpriority="high"
+               srcset="img/portada/fiesta-horizontal-800.jpg 800w, img/portada/fiesta-horizontal-1344.jpg 1344w"
+               sizes="(min-width: 1024px) 70vw, 90vw"
+               alt="Siete personas bailando con ropa de fiesta: vestidos verde de lentejuelas, celeste y amarillo, un mono rojo y trajes azul, bordó y negro">
+        </picture>
+      </div>
+      <div class="acciones baile__acciones">
+        <!-- data-reserva: propuesta-3.js le pone el enlace de la agenda (constante RESERVA) -->
+        <a class="btn btn--principal" href="#visitanos" data-reserva>Reservá tu prueba</a>
+        <a class="btn btn--whatsapp" href="#visitanos" data-whatsapp>Escribinos por WhatsApp</a>
+      </div>
+      <!-- control de pausa del cartel corredizo (WCAG 2.2.2); se oculta si la persona pidió menos movimiento -->
+      <button class="carrusel__boton baile__pausa" id="pausa-lemas" type="button" aria-pressed="false">Pausar movimiento</button>
+    </div>
+  </section>
+
+  <!-- Tendedero: carrusel de movimiento manual (flechas, dedo o arrastre). Se le irán sumando prendas del catálogo. -->
+  <section class="tendedero" id="catalogo" aria-labelledby="tendedero-titulo">
+    <div class="envoltura">
+      <div class="tendedero__cabeza">
+        <h2 class="seccion__titulo" id="tendedero-titulo">Recién llegados al perchero</h2>
+        <div class="carrusel__controles">
+          <button class="carrusel__boton carrusel__boton--flecha" id="anterior" type="button" aria-label="Prenda anterior" aria-controls="tendedero">‹</button>
+          <button class="carrusel__boton carrusel__boton--flecha" id="siguiente" type="button" aria-label="Prenda siguiente" aria-controls="tendedero">›</button>
+        </div>
+      </div>
+    </div>
+    <div class="envoltura envoltura--pista carrusel" id="carrusel">
+      <span class="carrusel__cuerda" aria-hidden="true"></span>
+      <ul class="tendedero__pista" id="tendedero" aria-label="Prendas del catálogo">
+        <li style="--i:0"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-02.webp" width="720" height="964" alt="Vestido largo verde esmeralda de lentejuelas con tajo, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-02</span><span class="tarjeta__nombre">Esmeralda de lentejuelas</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:1"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-01.webp" width="720" height="964" alt="Vestido largo negro de encaje con tirantes, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-01</span><span class="tarjeta__nombre">Negro de encaje</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:2"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VH-01.webp" width="720" height="964" alt="Saco de traje bordó con camisa blanca, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VH-01</span><span class="tarjeta__nombre">Saco bordó</span><span class="etiqueta etiqueta--hombre">Hombre</span></span>
+        </a></li>
+        <li style="--i:3"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-04.webp" width="720" height="964" alt="Vestido largo negro de escote drapeado, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-04</span><span class="tarjeta__nombre">Negro drapeado</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:4"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-03.webp" width="720" height="964" alt="Vestido largo negro con brillo y tirantes finos, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-03</span><span class="tarjeta__nombre">Negro con brillo</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <li style="--i:5"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VH-02.webp" width="720" height="964" alt="Saco de traje azul con camisa blanca, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VH-02</span><span class="tarjeta__nombre">Saco azul</span><span class="etiqueta etiqueta--hombre">Hombre</span></span>
+        </a></li>
+        <li style="--i:6"><a class="tarjeta" href="#visitanos">
+          <img class="tarjeta__foto" src="img/catalogo/VM-05.webp" width="720" height="964" alt="Vestido largo negro con cuello halter, en percha" loading="lazy">
+          <span class="tarjeta__cuerpo"><span class="tarjeta__codigo">VM-05</span><span class="tarjeta__nombre">Negro halter</span><span class="etiqueta etiqueta--mujer">Mujer</span></span>
+        </a></li>
+        <!-- Para sumar una prenda: copiar un <li> completo, cambiar foto, código, nombre, etiqueta y el número de --i -->
+      </ul>
+    </div>
+    <div class="envoltura">
+      <p class="aviso">Imágenes ilustrativas. Vení a conocer la prenda!</p>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="como-funciona" id="como-funciona" aria-labelledby="como-titulo">
+    <div class="envoltura">
+      <h2 class="seccion__titulo" id="como-titulo">Cómo funciona el alquiler</h2>
+      <ol class="pasos">
+        <li><h3>Reservá tu prueba</h3><p>Elegí un día y una hora para venir al local.</p></li>
+        <li><h3>Probate con asesoramiento</h3><p>Te ayudamos a encontrar la prenda, el talle y el corte.</p></li>
+        <li><h3>Retirá tu prenda</h3><p>Antes de tu fiesta, con los ajustes que necesite.</p></li>
+        <li><h3>Devolvela después</h3><p>La traés al local en la fecha acordada.</p></li>
+      </ol>
+      <!-- segundo acceso a la agenda, para quien llega hasta acá leyendo los pasos -->
+      <div class="acciones">
+        <a class="btn btn--principal" href="#visitanos" data-reserva>Reservá tu prueba</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia -->
+  <section class="historia" id="historia" aria-labelledby="historia-titulo">
+    <div class="envoltura historia__grilla">
+      <figure class="historia__foto">
+        <img src="img/historia/sastreria-original.jpg" width="230" height="300" alt="Fachada de la primera Sastrería Taya, con el cartel Calidad y perfección" loading="lazy">
+      </figure>
+      <div class="historia__texto">
+        <h2 class="seccion__titulo" id="historia-titulo">Nuestra historia</h2>
+        <p>Sastrería Taya en Santa Lucía año 1940, desde entonces vistiendo siempre con el mejor gusto</p>
+        <p class="acento acento--chico">Todo dicho en Calidad</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visitanos -->
+  <section class="visitanos" id="visitanos" aria-labelledby="visitanos-titulo">
+    <div class="envoltura">
+      <h2 class="seccion__titulo" id="visitanos-titulo">Visitanos</h2>
+      <dl class="datos">
+        <div><dt>Dirección</dt><dd>Calle Rivera, Santa Lucía, Canelones</dd></div>
+        <div><dt>Horario</dt><dd>Lunes a sábado, de 10:00 a 12:00 y de 16:00 a 19:30</dd></div>
+        <div><dt>WhatsApp</dt><dd><span data-whatsapp-texto>Número a confirmar</span></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/sastreria_taya/" target="_blank" rel="noopener">@sastreria_taya</a></dd></div>
+      </dl>
+      <div class="acciones">
+        <a class="btn btn--secundario" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Rivera+Santa+Luc%C3%ADa+Canelones+Uruguay" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura pie__fila">
+    <img class="pie__logo" src="img/marca/logo-taya.png" width="98" height="98" alt="Logo de Sastrería Taya">
+    <div>
+      <p class="pie__lema">Si es Taya, no falla.</p>
+      <p class="pie__nota">Sastrería Taya · Santa Lucía, Canelones · <span id="anio">2026</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/propuesta-4.js"></script>
+</body>
+</html>
